@@ -6,9 +6,17 @@ userGuess = 0
 
 while userGuess != answer:
     if numGuess == 0:
-        userGuess = int(input("Enter your first guess: "))
+        try:
+            userGuess = int(input("Enter your first guess: "))
+        except ValueError:
+            print("Please enter a base 10 integer. Thank you.")
+            continue
     else:
-        userGuess = int(input("Enter your next guess: "))
+        try:
+            userGuess = int(input("Enter your next guess: "))
+        except ValueError:
+            print("That was not a valid number. Please try again.")
+            continue
     numGuess += 1
     if userGuess == answer:
         print("You got the correct answer in " + str(numGuess) + " guesses!")
